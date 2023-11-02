@@ -1,0 +1,7 @@
+{
+  "name": "c-dur",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
