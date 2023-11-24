@@ -1,0 +1,40 @@
+<ion-header >
+  <ion-toolbar color="primary">
+    <ion-title>Einloggen</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="wrapper">
+    <form (ngSubmit)="login()" [formGroup]="credentials">
+      <ion-item class="ion-margin">
+        <ion-input
+          type="email"
+          placeholder="muster@mustermann.de"
+          formControlName="email"
+        ></ion-input>
+      </ion-item>
+ 
+      <ion-item class="ion-margin">
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <ion-button
+        class="ion-margin"
+        type="submit"
+        expand="block"
+        [disabled]="!credentials.valid"
+        >Log in</ion-button
+      >
+ 
+      <ion-button
+        class="ion-margin"
+        type="button"
+        expand="block"
+        fill="clear"
+        [disabled]="!credentials.valid"
+        (click)="signUp()"
+        >Neuen Account anlegen</ion-button
+      >
+    </form>
+  </div>
+</ion-content>

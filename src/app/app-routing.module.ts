@@ -1,16 +1,43 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
+import { AutoLoginGuard } from './guards/auto-login.guard';
 
 const routes: Routes = [
   {
-    path: 'home',
-    loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
-  {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
+    loadChildren: () => import('./pages/start/start.module').then( m => m.StartPageModule),
+  
+  }, 
+  {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then( m => m.LoginPageModule),
+    //canActivate: [AutoLoginGuard]
+  },  
+//  {
+   // path: 'tabs',
+  //  loadChildren: () => import('./pages/tabs/tabs.module').then( m => m.TabsPageModule),
+ //   canActivate: [AuthGuard]
+ // },
+  {
+    path: 'captions',
+    loadChildren: () => import('./pages/captions/captions.module').then( m => m.CaptionsPageModule),
+    canActivate: [AuthGuard]
   },
+
+ // {
+ //   path: 'tabs/captions/:id',
+  //  loadChildren: () => import('./pages/item/item.module').then( m => m.ItemPageModule),
+  //  canActivate: [AuthGuard]
+ // },
+
+  {
+    path: 'tag-group',
+    loadChildren: () => import('./pages/tag-group/tag-group.module').then( m => m.TagGroupPageModule)
+  },
+
+
+  
 ];
 
 @NgModule({

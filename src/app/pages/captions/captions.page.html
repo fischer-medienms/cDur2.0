@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar color="primary">
+     <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Anmeldung</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+<ion-card *ngFor="let list of dates" [routerLink]="list.dates.id">
+  <ion-card-header>
+    <ion-card-title>
+      {{list.dates.title}}
+    </ion-card-title>
+  </ion-card-header>
+</ion-card>
+  <ion-button expand="block" size="large" (click)="addList()" fill="outline">
+    <ion-icon name="add" slot="start"></ion-icon>
+    Add List
+  </ion-button>
+</ion-content>

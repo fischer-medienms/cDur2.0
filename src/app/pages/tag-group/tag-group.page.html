@@ -1,0 +1,33 @@
+<ion-header >
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button 
+           defaultHref="/tabs/tags" 
+           text="Speichern" 
+           (click)="save()">
+      </ion-back-button>
+    </ion-buttons>
+    <ion-title>Gruppe editieren</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <form [formGroup] ="group">
+    <ion-item>
+     
+      <ion-input label="Name" placeholder="Meine Tag Gruppe" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Tags</ion-label>
+      <ion-textarea 
+        placeholder="#coolstory" 
+        formControlName="tags"
+        rows="8"
+        autoGrow
+        label="tags"
+        >
+      </ion-textarea>
+    </ion-item>
+ </form>
+</ion-content>
